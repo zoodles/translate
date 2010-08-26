@@ -1,4 +1,4 @@
-ActionController::Routing::Routes.draw do
+ Rails.application.routes.draw do
   if Rails.env == 'development'
     match 'translate' => 'translate#index', :as => :translate_list
     match 'translate/translate' => 'translate#translate', :as => :translate
