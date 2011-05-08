@@ -11,11 +11,11 @@ To get the translation UI to write the YAML files in UTF8 you need to install th
 
 The translation UI finds all I18n keys by extracting them from I18n lookups in your application source code. In addition it adds all :en and default locale keys from the I18n backend.
 
-- Updated: Each string in the UI now has an "Auto Translate" link which will send the original text to Google Translate and will input the returned translation into the form field for further clean up and review prior to saving.
+Each string in the UI has an "Auto Translate" link which will send the original text to Google Translate and will input the returned translation into the form field for further clean up and review prior to saving.
 
 
 Rake Tasks
-=========
+----------
 
 In addition to the web UI this plugin adds the following rake tasks:
 
@@ -35,7 +35,7 @@ The google task is used for auto translating from one locale to another using Go
 The changed rake task can show you between one YAML file to another which keys have had their texts changed.
 
 Installation
-=========
+------------
 
 Add to your Gemfile:
 
@@ -44,13 +44,13 @@ Add to your Gemfile:
 Now visit /translate in your web browser to start translating.
 
 Dependencies
-=========
+------------
 
-- Rails 2.2 or higher
+- Rails 3.0 or higher
 - The ya2yaml gem if you want your YAML files written in UTF8 encoding.
 
 Authors
-=========
+-------
 
 - Peter Marklund (programming)
 - Joakim Westerlund (web design)

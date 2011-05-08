@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{translate-rails3}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Peter Marklund", "Milan Novota", "Roman Shterenzon"]
@@ -21,12 +21,13 @@ and also includes work from this fork: https://github.com/milann/translate
 }
   s.email = %q{romanbsd@yahoo.com}
   s.extra_rdoc_files = [
-    "README"
+    "README.md"
   ]
   s.files = [
     "MIT-LICENSE",
-    "README",
+    "README.md",
     "Rakefile",
+    "VERSION",
     "app/controllers/translate_controller.rb",
     "app/helpers/translate_helper.rb",
     "app/views/layouts/translate.html.erb",
@@ -52,7 +53,8 @@ and also includes work from this fork: https://github.com/milann/translate
     "spec/keys_spec.rb",
     "spec/log_spec.rb",
     "spec/spec_helper.rb",
-    "spec/storage_spec.rb"
+    "spec/storage_spec.rb",
+    "translate-rails3.gemspec"
   ]
   s.homepage = %q{https://github.com/romanbsd/translate}
   s.require_paths = ["lib"]
