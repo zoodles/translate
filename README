@@ -1,7 +1,7 @@
 Translate
 =========
 
-This plugin provides a web interface for translating Rails I18n texts (requires Rails 2.2 or higher) from one locale to another. The plugin has been tested only with the simple I18n backend that ships with Rails. I18n texts are read from and written to YAML files under config/locales.
+This plugin provides a web interface for translating Rails I18n texts (requires Rails 3.0 or higher) from one locale to another. The plugin has been tested only with the simple I18n backend that ships with Rails. I18n texts are read from and written to YAML files under config/locales.
 
 To translate to a new locale you need to add a YAML file for that locale that contains the locale as the top key and at least one translation.
 
@@ -36,13 +36,10 @@ The changed rake task can show you between one YAML file to another which keys h
 
 Installation
 =========
-Obtain the source with:
 
-./script/plugin install git://github.com/newsdesk/translate.git 
+Add to your Gemfile:
 
-To mount the plugin, add the following to your config/routes.rb file:
-
-Translate::Routes.translation_ui(map) if RAILS_ENV != "production"
+    gem 'translate-rails3', :require => 'translate', :group => :development
 
 Now visit /translate in your web browser to start translating.
 
@@ -57,6 +54,8 @@ Authors
 
 - Peter Marklund (programming)
 - Joakim Westerlund (web design)
+- Milan Novota (initial Rails 3 support)
+- Roman Shterenzon (Rails 3 cleanup and gem packaging)
 
 Many thanks to http://newsdesk.se for sponsoring the development of this plugin.
 

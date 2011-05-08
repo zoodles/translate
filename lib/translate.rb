@@ -1,8 +1,8 @@
 module Translate
+  class Engine < Rails::Engine
+  end if defined?(Rails) && Rails::VERSION::MAJOR == 3
 end
 
-require File.join(File.dirname(__FILE__), "translate_controller")
-require File.join(File.dirname(__FILE__), "translate_helper")
 Dir[File.join(File.dirname(__FILE__), "translate", "*.rb")].each do |file|
   require file
 end
