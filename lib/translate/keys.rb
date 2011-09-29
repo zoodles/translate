@@ -132,13 +132,18 @@ class Translate::Keys
 
   def extract_files
     files_to_scan.inject(HashWithIndifferentAccess.new) do |files, file|
-      keys = IO.read(file).encode("UTF-8").force_encoding("UTF-8")
+      keys = IO.read(file)
+      if keys.respond_to? "encode"
+        keys = keys.encode("UTF-8").force_encoding("UTF-8")
+      end
       error_count = 0
       begin
         encoded_keys = keys.scan(i18n_lookup_pattern)
       rescue => e
         unless error_count > 1
-          keys.encode!('utf-8', 'utf-8', :invalid => :replace)
+          if keys.respond_to? 'encode!'
+            keys.encode!('utf-8', 'utf-8', :invalid => :replace)
+          end
           error_count += 1
           retry
         else
@@ -146,7 +151,6 @@ class Translate::Keys
         end
       end
       encoded_keys.flatten.map(&:to_sym).each do |key|
-      IO.read(file).scan(i18n_lookup_pattern).flatten.map(&:to_sym).each do |key|
         files[key] ||= []
         path = Pathname.new(File.expand_path(file)).relative_path_from(Pathname.new(Rails.root)).to_s
         files[key] << path if !files[key].include?(path)
