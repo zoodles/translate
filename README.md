@@ -51,7 +51,7 @@ Configuration
 	config.from_locales = [:en]
 	config.to_locales = [:ja, :es, :fr]
 
-Where [:en] could be replaced by locale list of your choice.
+Where [:en] and [:ja, :es, :fr] could be replaced by locale list of your choice.
 
 Dependencies
 ------------
