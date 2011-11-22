@@ -48,8 +48,8 @@ Configuration
 
 You can configure from_locales and to_locales in your development.rb by
 
-		config.from_locales = [:en]
-		config.to_locales = [:ja, :es, :fr]
+	config.from_locales = [:en]
+	config.to_locales = [:ja, :es, :fr]
 
 Dependencies
 ------------
