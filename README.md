@@ -43,6 +43,14 @@ Add to your Gemfile:
 
 Now visit /translate in your web browser to start translating.
 
+Configuration
+-------------
+
+You can configure from_locales and to_locales in your development.rb by
+
+		config.from_locales = [:en]
+		config.to_locales = [:ja, :es, :fr]
+
 Dependencies
 ------------
 
