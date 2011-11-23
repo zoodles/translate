@@ -66,6 +66,7 @@ Authors
 - Joakim Westerlund (web design)
 - Milan Novota (initial Rails 3 support)
 - Roman Shterenzon (Rails 3 cleanup and gem packaging)
+- Ichiro Yamamoto
 
 Many thanks to http://newsdesk.se for sponsoring the development of this plugin.
 
