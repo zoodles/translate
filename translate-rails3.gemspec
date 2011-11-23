@@ -4,22 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{translate-rails3}
-  s.version = "0.1.1"
+  s.name = "translate-rails3"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Peter Marklund", "Milan Novota", "Roman Shterenzon"]
-  s.date = %q{2011-05-09}
-  s.description = %q{This plugin provides a web interface for translating Rails I18n texts
-(requires Rails 3.0 or higher) from one locale to another.
-The plugin has been tested only with the simple I18n backend that ships
-with Rails.
-I18n texts are read from and written to YAML files under config/locales.
-
-This gem is a fork of the original https://github.com/mynewsdesk/translate
-and also includes work from this fork: https://github.com/milann/translate
-}
-  s.email = %q{romanbsd@yahoo.com}
+  s.date = "2011-11-23"
+  s.description = "This plugin provides a web interface for translating Rails I18n texts\n(requires Rails 3.0 or higher) from one locale to another.\nThe plugin has been tested only with the simple I18n backend that ships\nwith Rails.\nI18n texts are read from and written to YAML files under config/locales.\n\nThis gem is a fork of the original https://github.com/mynewsdesk/translate\nand also includes work from this fork: https://github.com/milann/translate\n"
+  s.email = "romanbsd@yahoo.com"
   s.extra_rdoc_files = [
     "README.md"
   ]
@@ -31,7 +23,9 @@ and also includes work from this fork: https://github.com/milann/translate
     "app/controllers/translate_controller.rb",
     "app/helpers/translate_helper.rb",
     "app/views/layouts/translate.html.erb",
+    "app/views/translate/_array_form.html.erb",
     "app/views/translate/_pagination.html.erb",
+    "app/views/translate/_string_form.html.erb",
     "app/views/translate/index.html.erb",
     "config/routes.rb",
     "init.rb",
@@ -56,13 +50,12 @@ and also includes work from this fork: https://github.com/milann/translate
     "spec/storage_spec.rb",
     "translate-rails3.gemspec"
   ]
-  s.homepage = %q{https://github.com/romanbsd/translate}
+  s.homepage = "https://github.com/romanbsd/translate"
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Newsdesk translate plugin for Rails 3}
+  s.rubygems_version = "1.8.11"
+  s.summary = "Newsdesk translate plugin for Rails 3"
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
