@@ -24,7 +24,7 @@
 				<% else %>
 					<%= text_field_tag("#{field_name}[#{index}]", to_text[index], :size => line_size, :id => "#{key}[#{index}]") %>
 				<% end %>
-				<%= link_to_function 'Auto Translate', "getGoogleTranslation('#{key}[#{index}]', \"#{escape_javascript(from_text_section)}\", '#{@from_locale}', '#{@to_locale}')", :style => 'padding: 0; margin: 0;' %>
+				<%= translate_link("#{key}[#{index}]", from_text_section, @from_locale, @to_locale) %>
 				</p>
 			<% end %>
 		</ol>

@@ -3,12 +3,12 @@ module TranslateHelper
 	def render_translate_form(from_locale, to_locale, key)
 		from_text = lookup(from_locale, key)
 		if from_text.is_a?(String)
-			render :partial => 'string_form', :locals => 
+			render :partial => 'string_form', :locals =>
 				{:from_locale => from_locale,
 					:to_locale => to_locale,
 					:key => key}
 		elsif from_text.is_a?(Array)
-			render :partial => 'array_form', :locals => 
+			render :partial => 'array_form', :locals =>
 				{:from_locale => from_locale,
 					:to_locale => to_locale,
 					:key => key}
@@ -47,7 +47,7 @@ module TranslateHelper
         filter << link_to(label, link_params)
       end
     end
-    filter.join(" | ")    
+    filter.join(" | ")
   end
 
   def n_lines(text, line_size)
@@ -60,17 +60,28 @@ module TranslateHelper
     end
     n_lines
   end
-  
+
   def translate_javascript_includes
     sources = []
     if File.exists?(File.join(Rails.root, "public", "javascripts", "prototype.js"))
       sources << "/javascripts/prototype.js"
     else
-      sources << "http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"
+      sources << "http://ajax.googleapis.com/ajax/libs/prototype/1.7.0.0/prototype.js"
     end
-    sources << "http://www.google.com/jsapi"
     sources.map do |src|
       %Q{<script src="#{src}" type="text/javascript"></script>}
-    end.join("\n")
+    end.join("\n").html_safe
+  end
+
+  def translate_link(key, text, from, to)
+    method = if Translate.app_id
+      'getBingTranslation'
+    elsif Translate.api_key
+      'getGoogleTranslation'
+    else
+      nil
+    end
+    return nil unless method
+    link_to_function 'Auto Translate', "#{method}('#{key}', \"#{escape_javascript(text)}\", '#{from}', '#{to}')", :style => 'padding: 0; margin: 0;'
   end
 end

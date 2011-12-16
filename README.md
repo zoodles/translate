@@ -11,7 +11,9 @@ To get the translation UI to write the YAML files in UTF8 you need to install th
 
 The translation UI finds all I18n keys by extracting them from I18n lookups in your application source code. In addition it adds all :en and default locale keys from the I18n backend.
 
-Each string in the UI has an "Auto Translate" link which will send the original text to Google Translate and will input the returned translation into the form field for further clean up and review prior to saving.
+Strings in the UI can have an "Auto Translate" link (if configured, see below),
+which will send the original text to translation API and will input the returned
+translation into the form field for further clean up and review prior to saving.
 
 
 Rake Tasks
@@ -31,6 +33,7 @@ The missing task shows you any I18n keys in your code that do not have translati
 The merge_keys task is supposed to be used in conjunction with Sven Fuch's Rails I18n TextMate bundle (http://github.com/svenfuchs/rails-i18n/tree/master). Texts and keys extracted with the TextMate bundle end up in the temporary file log/translations.yml. When you run the merge_keys rake task the keys are moved over to the corresponding I18n locale file, i.e. config/locales/sv.yml. The merge_keys task also checks for overwrites of existing keys by warning you that one of your extracted keys already exists with a different translation.
 
 The google task is used for auto translating from one locale to another using Google Translate.
+* Note: this task is currently broken, as Google is now charging for the Google Translate service.
 
 The changed rake task can show you between one YAML file to another which keys have had their texts changed.
 
@@ -52,6 +55,16 @@ Configuration
 	config.to_locales = [:ja, :es, :fr]
 
 Where [:en] and [:ja, :es, :fr] could be replaced by locale list of your choice.
+
+(Optional) You can bring back "Auto Translate" support by specifying Bing AppId or
+Google API Key in config/initializers/translate.rb with:
+
+    Translate.app_id = 'myappid'
+
+or
+
+    Translate.api_key = 'mysecretkey'
+
 
 Dependencies
 ------------
