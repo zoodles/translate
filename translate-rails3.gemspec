@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "translate-rails3"
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Peter Marklund", "Milan Novota", "Roman Shterenzon"]
-  s.date = "2011-12-16"
+  s.date = "2012-01-16"
   s.description = "This plugin provides a web interface for translating Rails I18n texts\n(requires Rails 3.0 or higher) from one locale to another.\nThe plugin has been tested only with the simple I18n backend that ships\nwith Rails.\nI18n texts are read from and written to YAML files under config/locales.\n\nThis gem is a fork of the original https://github.com/mynewsdesk/translate\nand also includes work from this fork: https://github.com/milann/translate\n"
   s.email = "romanbsd@yahoo.com"
   s.extra_rdoc_files = [
