@@ -2,15 +2,12 @@ class TranslateController < ActionController::Base
   # It seems users with active_record_store may get a "no :secret given" error if we don't disable csrf protection,
   skip_before_filter :verify_authenticity_token
   
-  before_filter :authenticate
+#  password = `hostname`.chomp
+#  Rails.logger.info("The translation password is #{password}")
+#  http_basic_authenticate_with :name => "translate", :password => password
 
   protected
 
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      username == "translate" && password == `hostname`.chomp
-    end
-  end
  
   prepend_view_path(File.join(File.dirname(__FILE__), "..", "views"))
   layout 'translate'
